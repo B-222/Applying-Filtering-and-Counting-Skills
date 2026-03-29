@@ -1,0 +1,16 @@
+from log_utils import filter_by_level, count_levels, count_services
+logs = [
+    "2026-02-05 08:11:20 | ERROR | db | DB timeout",
+    "2026-02-05 08:11:21 | INFO | api | Request received",
+    "2026-02-05 08:11:22 | WARN | disk | Disk almost full",
+    "2026-02-05 08:11:23 | ERROR | api | Failed request",
+    "2026-02-05 08:11:24 | INFO | auth | User login",
+    "2026-02-05 08:11:25 | WARN | api | Slow response"
+]
+print("Filtered ERROR logs:")
+for line in filter_by_level(logs, "ERROR"):
+    print(line)
+print("\nCount by level:")
+print(count_levels(logs))
+print("\nCount by service:")
+print(count_services(logs))
